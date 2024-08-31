@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こわいよ</title>
+</head>
+<body>
+    <h1>君の運命は！！！！！</h1>
+   <button id="randomButton"><img src="img/OIP.jpg" alt="" srcset=""></a></button>
+   <button id="randomButton"><img src="jan1.png" alt=""></a></button>
+   <button id="randomButton"><img src="jan2.png" alt=""></a></button>
+   <script>
+    // const doa1 = document.querySelector("#doa1");
+    // const doa2 = document.querySelector("#doa2");
+    // const doa3 = document.querySelector("#doa3");
+const urls = [
+    "takumarandom1.html",
+    "takumarandom2.html",
+    "takumarandom3.html",
+];
+const randomButton = document.getElementById("randomButton");
+randomButton.addEventListener("click", () => {
+ const index = Math.floor(Math.random() * 3);
+ console.log(index)
+ const url = urls[index];
+ window.location.href = url;
+});
+   </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+body {
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .haru{font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F0F0;
+        }
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .thumbnail {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #mainImage {
+    margin: 20px auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+   <div = "haru">
+    <header>
+        <h1>PC部</h1>
+        <p>僕らの青春の１ページ</p>
+    </header>
+    <nav>
+        <a href="新しいテキスト ドキュメント.html">ホーム</a>
+        <a href="MK.html">イラスト</a>
+        <a href="ww.html">活動写真</a>
+        <a href="http://www.ishikarishoyo.hokkaido-c.ed.jp/?page_id=40">お問い合わせ</a>
+    </nav>
+    </div>
+    <h1>イラスト</h1>
+    <body>
+        <img id="mainImage" src="ジャズエイジ\４.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+        <div id="gallery">
+            <img class="thumbnail" src="ジャズエイジ\１.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+            <img class="thumbnail" src="ジャズエイジ\３.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+            <img class="thumbnail" src="ジャズエイジ\４.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+            <img class="thumbnail" src="ジャズエイジ\５.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+            <img class="thumbnail" src="ジャズエイジ\６.jpg" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+            <img class="thumbnail" src="ジャズエイジ\nnmrnpc068 - コピー.png" alt="表示されてないよー！(  ᷄ ᾥ ᷅  )">
+          </div>
+        <script>
+          window.onload = function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImage');
+            thumbnails.forEach(function(thumbnail) {
+              thumbnail.addEventListener('click', function() {
+                mainImage.src = this.src.replace('small', 'large');
+                mainImage.alt = this.alt;
+              });
+            });
+          };
+        </script>
+        </body>
+        </html>

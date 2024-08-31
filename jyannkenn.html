@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけんゲーム</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #result {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>じゃんけんゲーム</h1>
+  
+  <div>
+    <button onclick="playGame('✊')">グー</button>
+    <button onclick="playGame('✋')">パー</button>
+    <button onclick="playGame('✌')">チョキ</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    function playGame(playerChoice) {
+      var choices = ['✊', '✋', '✌'];
+      var computerChoice = choices[Math.floor(Math.random() * 3)];
+      
+      var result = '';
+
+      if (playerChoice === computerChoice) {
+        result = '引き分けです！';
+      } else if (
+        (playerChoice === '✊' && computerChoice === '✌') ||
+        (playerChoice === '✋' && computerChoice === '✊') ||
+        (playerChoice === '✌' && computerChoice === '✋')
+      ) {
+        result = '勝ちました！';
+      } else {
+        result = '負けました…';
+      }
+
+      document.getElementById('result').innerText = '選択: ' + playerChoice + '、相手: ' + computerChoice + '、結果: ' + result;
+    }
+  </script>
+
+</body>
+</html>

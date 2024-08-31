@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sample.css">
+    
+    <title>Document</title>
+</head>
+<body>
+
+
+<h1>おみくじ</h1>
+    <button id="btn">おみくじをひく</button>
+    <!-- <p id="echo">view</p> -->
+    <!-- <p id="look">look</p> -->
+    <tr>
+        <td>Lead</td>
+        <td><p id = tablegrl></p></td>
+        <td><p id = tabledrl></p></td>
+        <td><p id = tabletrl></p></td>
+        <td><p id = tablearl></p></td>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+         
+        // let button = document.querySelector("#btn")
+        // button.onclick = function omikuji(){
+        $("#btn").on("click",function(){
+           //乱数生成
+            let r = Math.random()*5;
+            // alert(r);
+            let n = Math.ceil(r);
+            // alert(n);
+            // if分岐処理 
+                if(n == 1){
+                    view = '<img src="img/OIP.jpg">';
+                    look = "大吉"
+                }
+                if(n == 2){
+                    view = "中吉";
+                }
+                if(n == 3){
+                    view = "小吉";
+                }
+                if(n == 4){
+                    view = "吉";
+                }
+                if(n == 5){
+                    view = "凶";
+                }
+                //  alert(view);
+                console.log(n);
+               
+                //表示処理
+                // let a = document.getElementById("echo")
+                // a.innerHTML = view;
+                $("#tablegrl").html(view);
+                $("#tabledrl").html(look);
+       
+        
+            });
+    
+</script>
+</body>
+</html>

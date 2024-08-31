@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"><img src="jan0.png" alt="">たたかう</button>
+    <button id="btn2"><img src="jan1.png" alt="">まほう</button>
+    <button id="btn3"><img src="jan2.png" alt="">逃げる</button>
+    <p id="echo"></p>
+
+
+
+    <script>
+    let button = document.getElementById("btn");
+        // button.onclick = function omikuji
+        // 関数
+    button.onclick = function m(){
+        for(let i=0; i<5; i++){
+        // ランダムな数をつくるおまじない
+        let random = Math.random()*3;
+        console.log(random);
+
+        let s = Math.ceil(random);
+        console.log(s);
+        // let n =Math.ceil(Math.random()*3)
+
+        if(s == 1){
+            // alert("あたり")
+            view = "0"
+        }
+        if(s == 2){
+            // alert("はずれ")
+            view = "10"
+        }
+        
+        let a = document.getElementById("echo");
+        a.innerHTML = view;
+    };
+    };
+
+    let button2 = document.getElementById("btn2");
+    button2.onclick = function m(){
+        // ランダムな数をつくるおまじない
+        let random = Math.random()*3;
+        console.log(random);
+
+        let s = Math.ceil(random);
+        console.log(s);
+        // let n =Math.ceil(Math.random()*3)
+
+        if(s == 1){
+            alert("あたり")
+        }
+        else{
+            alert("はずれ")
+        };
+    };
+
+    let button3 = document.getElementById("btn3");
+    button3.onclick = function m(){
+        // ランダムな数をつくるおまじない
+        let random = Math.random()*3;
+        console.log(random);
+
+        let s = Math.ceil(random);
+        console.log(s);
+        // let n =Math.ceil(Math.random()*3)
+
+        if(s == 1){
+            alert("あたり")
+        }
+        else{
+            alert("はずれ")
+        };
+    };
+
+    // m();
+    // m();
+    // m();
+
+        // // 変数
+        // let name ="新陽太郎";
+        // // name = "サツドラ太郎"
+        // console.log(name);
+
+        // let sinyo ="本気で挑戦する学校"
+        // console.log(sinyo)
+
+        // //定数
+        // const store ="サツドラ"
+        // // store = "ツルハ"
+        // console.log(store);
+ 
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Drawing</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<button id="saveButton">Save Drawing</button>
+
+<script>
+    // Canvas要素を取得
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+
+    // 描画データを保存する配列
+    var drawingData = [];
+
+    // マウスの座標を保持する変数
+    var mouseX = 0;
+    var mouseY = 0;
+    var isDrawing = false;
+
+    // マウスが押された時の処理
+    canvas.addEventListener("mousedown", function(e) {
+        isDrawing = true;
+        mouseX = e.clientX - canvas.getBoundingClientRect().left;
+        mouseY = e.clientY - canvas.getBoundingClientRect().top;
+        drawingData.push({ x: mouseX, y: mouseY, action: "mousedown" });
+    });
+
+    // マウスが離された時の処理
+    canvas.addEventListener("mouseup", function(e) {
+        isDrawing = false;
+        drawingData.push({ action: "mouseup" });
+    });
+
+    // マウスが動いた時の処理
+    canvas.addEventListener("mousemove", function(e) {
+        if (isDrawing) {
+            var mouseX2 = e.clientX - canvas.getBoundingClientRect().left;
+            var mouseY2 = e.clientY - canvas.getBoundingClientRect().top;
+
+            // 直前の座標から現在の座標まで線を引く
+            context.beginPath();
+            context.moveTo(mouseX, mouseY);
+            context.lineTo(mouseX2, mouseY2);
+            context.stroke();
+
+            drawingData.push({ x1: mouseX, y1: mouseY, x2: mouseX2, y2: mouseY2, action: "mousemove" });
+
+            mouseX = mouseX2;
+            mouseY = mouseY2;
+        }
+    });
+
+    // ボタンをクリックしたときに描画データをローカルストレージに保存する
+    var saveButton = document.getElementById("saveButton");
+    saveButton.addEventListener("click", function() {
+        saveDrawingData();
+    });
+
+    // 描画データをローカルストレージに保存する関数
+    function saveDrawingData() {
+        localStorage.setItem("drawingData", JSON.stringify(drawingData));
+        alert("Drawing saved to local storage!");
+    }
+
+</script>
+</body>
+</html>

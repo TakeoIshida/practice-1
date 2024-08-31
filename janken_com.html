@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム</title>
+</head>
+<body>
+    <!-- 自分の手を決めるためのボタン表示 -->
+    <button id="gu"><img src="img/gu.png" alt="">グー</button>
+    <button id="choki">チョキ</button>
+    <button id="pa">パー</button>
+
+    <!-- 相手の手を表示 -->
+    <p id="enemyview">相手の手</p>
+
+    <!-- jquery読み込み処理 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // 自分の手の変数
+    const gu = document.querySelector("#gu");
+    const choki = document.querySelector("#choki");
+    const pa = document.querySelector("#pa");
+
+    //空の表示にしておいてイベント時に表示するための変数
+    //変数の中身が変わるのでconstではなletで変数をつくる
+    let view =""
+
+// htmlでボタンを押したときに動くための処理
+$("#gu,#choki,#pa").on("click",function(){
+    // 相手の手を決める変数（配列で作成）
+    const hand=["グー","チョキ","パー"];
+    //console.log(hand);
+
+    //handの配列からランダムに取得処理
+    const enemyhand = hand[Math.floor(Math.random()*3)];//0~2が入る
+    //console.log(enemyhand);
+
+
+   //グーを出した時のイベント処理
+    gu.onclick = function(e){
+        if(enemyhand === "グー"){
+            // alert("あいこ");
+            view = '<img src = "img/gu.png">'
+        }else if(enemyhand === "チョキ"){
+            // alert("勝ち");
+            view = '<img src = "img/choki.png">'
+        }else if(enemyhand === "パー"){
+            // alert("負け")
+            view = '<img src = "img/pa.png">'
+        }
+    }
+
+    //チョキを出した時のイベント処理
+    choki.onclick = function(e){
+        if(enemyhand === "グー"){
+            alert("負け");
+        }else if(enemyhand === "チョキ"){
+            alert("あいこ");
+        }else if(enemyhand === "パー"){
+            alert("勝ち")
+        }
+    }
+
+    //チョキを出した時のイベント処理
+    pa.onclick = function(e){
+        if(enemyhand === "グー"){
+            alert("勝ち");
+        }else if(enemyhand === "チョキ"){
+            alert("負け");
+        }else if(enemyhand === "パー"){
+            alert("あいこ")
+        }
+    }
+
+    //相手の手を表示する処理
+    $("#enemyview").html(view);
+});
+</script>
+
+
+    
+</body>
+</html>
+<!-- //じぶんの手がボタンで表示する・・・ボタンのクリックイベント
+//相手の手がランダムで決まる・・・マスランダムを使って3パターンにする。
+//if文でで条件をわけてあげる・・・自分の手に合わせてランダムで何が出たかを書いて条件を分ける
+//結果を表示する・・・htmlで結果を表示する。
+ -->
+
+
+
+

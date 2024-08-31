@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<h1>おみくじ</h1>
+    <button id="btn">おみくじをひく</button>
+    <button id="btn2">おみくじをひく</button>
+    <button id="btn">おみくじをひく</button>
+    <button id="btn">おみくじをひく</button>
+    <button id="btn">おみくじをひく</button>
+    <p id="echo"></p>
+    <p id="echo2"></p>
+<script>
+        // ボタンのID取得
+        let button = document.querySelector("#btn")
+      
+        // おみくじの関数処理
+        button.onclick = function omikuji(){
+            let r = Math.random()*5;
+            // alert(r);
+            let n = Math.ceil(r);
+            // alert(n);
+              if(n == 1){
+                view = '<img src="img/OIP.jpg">'
+                // alert("大吉")
+              }
+              if(n == 2){
+                view = '<img src="img/gu.png">';
+                // alert("中吉")
+              }
+              if(n == 3){
+                view = '<img src="img/choki.png">';
+                // alert("小吉")
+              }
+              if(n == 4){
+                view = '<img src="img/pa.png">';
+                // alert("末吉")
+              }
+              if(n == 5){
+                view ='<img src="img/guimg.png">';
+                // alert("凶")
+              }
+            let a = document.getElementById("echo")
+            // let a = document.getElementById("echo")
+            a.innerHTML = view;
+        }
+        
+        let button2 = document.querySelector("#btn2")
+      
+      // おみくじの関数処理
+      button2.onclick = function omikuji(){
+          let r = Math.random()*5;
+          // alert(r);
+          let n = Math.ceil(r);
+          // alert(n);
+            if(n == 1){
+              view = '<img src="img/OIP.jpg">'
+              // alert("大吉")
+            }
+            if(n == 2){
+              view = '<img src="img/gu.png">';
+              // alert("中吉")
+            }
+            if(n == 3){
+              view = '<img src="img/choki.png">';
+              // alert("小吉")
+            }
+            if(n == 4){
+              view = '<img src="img/pa.png">';
+              // alert("末吉")
+            }
+            if(n == 5){
+              view ='<img src="img/guimg.png">';
+              // alert("凶")
+            }
+          let a = document.getElementById("echo2")
+          // let a = document.getElementById("echo")
+          a.innerHTML = view;
+      }
+           
+        // button.onclick = function omikuji(){
+           
+        //     let r = Math.random()*5;
+        //     // alert(r);
+        //     let n = Math.ceil(r);
+        //     // alert(n);  
+        //         if(n == 1){
+        //             view = '<img src="img/OIP.jpg">';
+        //         }
+        //         if(n == 2){
+        //             view = "中吉";
+        //         }
+        //         if(n == 3){
+        //             view = "小吉";
+        //         }
+        //         if(n == 4){
+        //             view = "吉";
+        //         }
+        //         if(n == 5){
+        //             view = "凶";
+        //         }
+        //         //  alert(view);
+        //         console.log(n);
+               
+        //         let a = document.getElementById("echo")
+        //         a.innerHTML = view;
+       
+        // }
+       
+    
+</script>
+</body>
+</html>

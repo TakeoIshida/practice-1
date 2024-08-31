@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    </head>
+    <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    
+    <script>
+        // Canvas要素を取得
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+    
+        // マウスの座標を保持する変数
+        var mouseX = 0;
+        var mouseY = 0;
+        var isDrawing = false;
+    
+        // マウスが押された時の処理
+        canvas.addEventListener("mousedown", function(e) {
+            isDrawing = true;
+            mouseX = e.clientX - canvas.getBoundingClientRect().left;
+            mouseY = e.clientY - canvas.getBoundingClientRect().top;
+        });
+    
+        // マウスが離された時の処理
+        canvas.addEventListener("mouseup", function(e) {
+            isDrawing = false;
+        });
+    
+        // マウスが動いた時の処理
+        canvas.addEventListener("mousemove", function(e) {
+            if (isDrawing) {
+                var mouseX2 = e.clientX - canvas.getBoundingClientRect().left;
+                var mouseY2 = e.clientY - canvas.getBoundingClientRect().top;
+    
+                // 直前の座標から現在の座標まで線を引く
+                context.beginPath();
+                context.moveTo(mouseX, mouseY);
+                context.lineTo(mouseX2, mouseY2);
+                context.stroke();
+    
+                mouseX = mouseX2;
+                mouseY = mouseY2;
+            }
+        });
+    </script>
+    </body>
+    </html>
+
+
+
+</body>
+</html>
